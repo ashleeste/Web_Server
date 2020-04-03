@@ -26,7 +26,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log('Connected!');
 
-  con.query(queries.CREATE_TASKS_TABLE, function(err, result) {
+  con.query(queries.CREATE_BOOKS_TABLE, function(err, result) {
     if (err) throw err;
     console.log('Table created or exists already!');
   });

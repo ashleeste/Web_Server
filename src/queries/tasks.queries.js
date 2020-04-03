@@ -11,9 +11,9 @@
  * NOTE: order is important.
  * - columns can have multiple options attached (take `id` column for example)
  * - id is always first (helps with inserting)
- * - defaults always specifed last (helps with inserting)
+ * - defaults always specified last (helps with inserting)
  */
-exports.CREATE_TASKS_TABLE = `CREATE TABLE IF NOT EXISTS tasks(
+exports.CREATE_BOOKS_TABLE = `CREATE TABLE IF NOT EXISTS books(
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
     created_date DATETIME DEFAULT CURRENT_TIMESTAMP(),
@@ -22,10 +22,10 @@ exports.CREATE_TASKS_TABLE = `CREATE TABLE IF NOT EXISTS tasks(
   )`;
   
   // Get every task
-  exports.ALL_TASKS = `SELECT * FROM tasks`;
+  exports.ALL_BOOKS = `SELECT * FROM books`;
   
   // Get a single task by id
-  exports.SINGLE_TASKS = `SELECT * FROM tasks WHERE id = ?`;
+  exports.SINGLE_BOOKS = `SELECT * FROM books WHERE id = ?`;
   
   /**
    * Insert follows syntax:
@@ -36,7 +36,7 @@ exports.CREATE_TASKS_TABLE = `CREATE TABLE IF NOT EXISTS tasks(
    * - column names match the order the are in the table
    * - `?` allow us to use params in our controllers
    */
-  exports.INSERT_TASK = `INSERT INTO tasks (name) VALUES (?)`;
+  exports.INSERT_BOOK = `INSERT INTO books (name) VALUES (?)`;
   
   /**
    * Update follows syntax:
@@ -44,7 +44,7 @@ exports.CREATE_TASKS_TABLE = `CREATE TABLE IF NOT EXISTS tasks(
    *
    * NOTE: omitting `WHERE` will result in updating every existing entry.
    */
-  exports.UPDATE_TASK = `UPDATE tasks SET name = ?, status = ? WHERE id = ?`;
+  exports.UPDATE_BOOK = `UPDATE books SET name = ?, status = ? WHERE id = ?`;
   
   // Delete a task by id
-  exports.DELETE_TASK = `DELETE FROM tasks WHERE id = ?`;
+  exports.DELETE_BOOK = `DELETE FROM books WHERE id = ?`;

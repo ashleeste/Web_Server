@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 // ************************************
 
 // Handle routes for tasks.
-app.use('/tasks', tasksRoutes); // http://localhost:3000/tasks
+app.use('/books', tasksRoutes); // http://localhost:3000/books
 // app.use('/users', usersRoutes); // http://localhost:3000/users
 
 // Handle 404 requests
