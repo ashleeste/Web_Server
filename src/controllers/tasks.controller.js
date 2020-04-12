@@ -9,8 +9,8 @@ const queries = require('../queries/tasks.queries');
  * DELETE - Delete
  */
 
-exports.getAllBooks = function(req, res) {
-  con.query(queries.ALL_BOOKS, function(err, result, fields) {
+exports.getAllTasks = function(req, res) {
+  con.query(queries.ALL_TASKS, function(err, result, fields) {
     if (err) {
       res.send(err);
     }
@@ -19,8 +19,8 @@ exports.getAllBooks = function(req, res) {
 };
 
 // http://localhost:3000/tasks/1
-exports.getBook = function(req, res) {
-  con.query(queries.SINGLE_BOOKS, [req.params.taskId], function(err, result) {
+exports.getTask = function(req, res) {
+  con.query(queries.SINGLE_TASK, [req.params.taskId], function(err, result) {
     if (err) {
       res.send(err);
     }
@@ -35,8 +35,8 @@ exports.getBook = function(req, res) {
  *  name: 'A task name'
  * }
  */
-exports.createBook = function(req, res) {
-  con.query(queries.INSERT_BOOK, [req.body.name], function(err, result) {
+exports.createTask = function(req, res) {
+  con.query(queries.INSERT_TASK, [req.body.name], function(err, result) {
     if (err) {
       res.send(err);
     }
@@ -53,9 +53,9 @@ exports.createBook = function(req, res) {
  *  state: 'completed'
  * }
  */
-exports.updateBook = function(req, res) {
+exports.updateTask = function(req, res) {
   con.query(
-    queries.UPDATE_BOOK,
+    queries.UPDATE_TASK,
     [req.body.name, req.body.status, req.params.taskId],
     function(err, data) {
       if (err) {
@@ -67,8 +67,8 @@ exports.updateBook = function(req, res) {
 };
 
 // http://localhost:3000/tasks/1
-exports.deleteBook = function(req, res) {
-  con.query(queries.DELETE_BOOK, [req.params.taskId], function(err) {
+exports.deleteTask = function(req, res) {
+  con.query(queries.DELETE_TASK, [req.params.taskId], function(err) {
     if (err) {
       res.send(err);
     }
